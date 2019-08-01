@@ -1,11 +1,23 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 
 	"github.com/zquangu112z/NarrativeGenerator/core"
 )
 
+// print the contents of the obj
+func PrettyPrint(data interface{}) {
+	var p []byte
+	//    var err := error
+	p, err := json.MarshalIndent(data, "", "\t")
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	fmt.Printf("%s \n", p)
+}
 func main() {
 	student1 := core.Student{
 		Name: "Nicholas",
@@ -50,11 +62,11 @@ func main() {
 	}
 
 	student1_narrative := student1.Evaluate()
-	fmt.Println(student1_narrative)
+	PrettyPrint(student1_narrative)
 
 	student2_narrative := student2.Evaluate()
-	fmt.Println(student2_narrative)
+	PrettyPrint(student2_narrative)
 
 	student3_narrative := student3.Evaluate()
-	fmt.Println(student3_narrative)
+	PrettyPrint(student3_narrative)
 }
