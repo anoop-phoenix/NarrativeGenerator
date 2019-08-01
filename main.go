@@ -23,13 +23,13 @@ func main() {
 		Name: "Nicholas",
 		Subjects: []core.Subject{
 			core.Subject{
-				Assignments: []core.Assignment{8, 9, 10},
+				Assignments: []float64{8, 9, 10},
 			},
 			core.Subject{
-				Assignments: []core.Assignment{1, 2, 10},
+				Assignments: []float64{1, 2, 10},
 			},
 			core.Subject{
-				Assignments: []core.Assignment{10, 10, 10, 10},
+				Assignments: []float64{10, 10, 10, 10},
 			},
 		},
 		Ielts: true,
@@ -39,10 +39,10 @@ func main() {
 		Name: "Limmie",
 		Subjects: []core.Subject{
 			core.Subject{
-				Assignments: []core.Assignment{8, 9, 10},
+				Assignments: []float64{8, 9, 10},
 			},
 			core.Subject{
-				Assignments: []core.Assignment{10, 10, 10},
+				Assignments: []float64{10, 10, 10},
 			},
 		},
 		Ielts: false,
@@ -52,10 +52,10 @@ func main() {
 		Name: "Kilia",
 		Subjects: []core.Subject{
 			core.Subject{
-				Assignments: []core.Assignment{8, 9, 10},
+				Assignments: []float64{8, 9, 10},
 			},
 			core.Subject{
-				Assignments: []core.Assignment{10, 10, 10},
+				Assignments: []float64{10, 10, 10},
 			},
 		},
 		Ielts: true,

@@ -5,11 +5,9 @@ import (
 	"time"
 )
 
-type Assignment float64
-
 type Subject struct {
 	Name        string
-	Assignments []Assignment
+	Assignments []float64
 }
 
 type Student struct {
@@ -18,10 +16,10 @@ type Student struct {
 	Ielts    bool
 }
 
-func average(assignment []Assignment) float64 {
+func average(assignment []float64) float64 {
 	total := 0.0
 	for _, v := range assignment {
-		total += float64(v)
+		total += v
 	}
 	return total / float64(len(assignment))
 }
@@ -43,7 +41,7 @@ func evaluate_subjects(subjects []Subject) Narrative {
 	return narrative
 }
 
-func evaluate_assignments(assignments []Assignment) Narrative {
+func evaluate_assignments(assignments []float64) Narrative {
 	// Check average mark
 	narrative := Narrative{
 		Desc:   "All items are over 5 and the average is $gte 8.5",
