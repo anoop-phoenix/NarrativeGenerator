@@ -1,34 +1,24 @@
 package main
 
 import (
-	"encoding/json"
-	"fmt"
-
+	"github.com/zquangu112z/NarrativeGenerator/common"
 	"github.com/zquangu112z/NarrativeGenerator/core"
 )
 
-// print the contents of the obj
-func PrettyPrint(data interface{}) {
-	var p []byte
-	//    var err := error
-	p, err := json.MarshalIndent(data, "", "\t")
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-	fmt.Printf("%s \n", p)
-}
 func main() {
 	student1 := core.Student{
 		Name: "Nicholas",
 		Subjects: []core.Subject{
 			core.Subject{
+				Name:        "Science",
 				Assignments: []float64{8, 9, 10},
 			},
 			core.Subject{
+				Name:        "Physical Education",
 				Assignments: []float64{1, 2, 10},
 			},
 			core.Subject{
+				Name:        "Geography",
 				Assignments: []float64{10, 10, 10, 10},
 			},
 		},
@@ -39,9 +29,11 @@ func main() {
 		Name: "Limmie",
 		Subjects: []core.Subject{
 			core.Subject{
+				Name:        "Science",
 				Assignments: []float64{8, 9, 10},
 			},
 			core.Subject{
+				Name:        "Physical Education",
 				Assignments: []float64{10, 10, 10},
 			},
 		},
@@ -52,21 +44,20 @@ func main() {
 		Name: "Kilia",
 		Subjects: []core.Subject{
 			core.Subject{
+				Name:        "Science",
 				Assignments: []float64{8, 9, 10},
 			},
 			core.Subject{
+				Name:        "Physical Education",
 				Assignments: []float64{10, 10, 10},
 			},
 		},
 		Ielts: true,
 	}
 
-	student1_narrative := student1.Evaluate()
-	PrettyPrint(student1_narrative)
+	common.PrettyPrint(student1.Evaluate())
 
-	student2_narrative := student2.Evaluate()
-	PrettyPrint(student2_narrative)
+	common.PrettyPrint(student2.Evaluate())
 
-	student3_narrative := student3.Evaluate()
-	PrettyPrint(student3_narrative)
+	common.PrettyPrint(student3.Evaluate())
 }
