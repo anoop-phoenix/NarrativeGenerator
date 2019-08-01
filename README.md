@@ -13,6 +13,6 @@ The process checks wether a student is a very good student or not. To be qualifi
 
 Beside the yes/no answer, the algorithm must provide the story evaluating the student.
 
-## Implementation
-
 ## Experience
+* Only provide `ReferenceResource` in the leaf node, therefore, the information is not duplicated 
+* The detail of `narrative` depends on the intent of the author
