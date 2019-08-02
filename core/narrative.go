@@ -2,16 +2,6 @@ package core
 
 import "time"
 
-// ReferenceType ...
-type ReferenceType int
-
-const (
-	// ReferenceString ...
-	ReferenceString ReferenceType = iota
-	// ReferenceMajor ...
-	ReferenceMajor
-)
-
 // ReferenceResource ...
 type ReferenceResource struct {
 	Reference     string        // C? Literal reference, Relative, internal or absolute URL
@@ -19,16 +9,34 @@ type ReferenceResource struct {
 	Display       string        // Text alternative for the resource
 }
 
-// Narrative ...
-type Narrative struct {
+// EvaluationProcess ...
+type EvaluationProcess struct {
+	FunctionID string // Id of the executed function
+	Chapter    string
 	References []ReferenceResource // Store evidences
-	Desc       string
-	Status     bool
-	Childs     []Narrative
+	ValueType  ValueType
+	Value      interface{}
+	Childs     []EvaluationProcess
 }
 
-// EvaluateResult ...
-type EvaluateResult struct {
+// Result ...
+type Result struct {
+	FunctionID          string      // Id of the executed function
+	Code                MeasureCode // Meaning of the measure
+	ValueType           ValueType
+	Value               interface{}
+	EvaluationProcesses []EvaluationProcess
+}
+
+// [] remove list in result root level
+// 	[] list -> object
+// 	[] items -> object attr
+// [] narrative need adapt continous evaluation. i.e: numerator depends on denominator
+
+// EvaluationResult ...
+type EvaluationResult struct {
 	EvaluatedDate time.Time
-	Narrative     Narrative
+	Status        StatusType
+	Measure       string
+	Results       []Result
 }

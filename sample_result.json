@@ -1,0 +1,154 @@
+{
+    "EvaluatedDate": "2019-08-01T11:37:08.404643+07:00",
+    "Status": "complete",
+    "Measure": "Is-a-very-good-student-and-average-score",
+    "Results": [
+        {
+            "Code": "is-a-very-good-student",
+            "ValueType": "boolean",
+            "Value": true,
+            "EvaluationProcesses": [
+                {
+                    "FunctionID": "function_a_0001",
+                    "Chapter": "Every subject's assignments are over 5 and the average is $gte 8.5",
+                    "ValueType": "boolean",
+                    "Value": true,
+                    "Childs": [
+                        {
+                            "FunctionID": "function_a_0001_0001",
+                            "Chapter": "All items are over 5 and the average is $gte 8.5",
+                            "ValueType": "boolean",
+                            "Value": true,
+                            "Childs": [
+                                {
+                                    "FunctionID": "function_a_0001_0001_0001",
+                                    "Chapter": "The average is $gte 8.5",
+                                    "References": [
+                                        {
+                                            "Reference": "",
+                                            "ReferenceType": 0,
+                                            "Display": "The assignments are [8 9 10]"
+                                        },
+                                        {
+                                            "Reference": "",
+                                            "ReferenceType": 0,
+                                            "Display": "The average is 9.0"
+                                        }
+                                    ],
+                                    "ValueType": "boolean",
+                                    "Value": true,
+                                    "Childs": null
+                                },
+                                {
+                                    "FunctionID": "function_a_0001_0001_0001",
+                                    "Chapter": "All assignments is over 5",
+                                    "References": [
+                                        {
+                                            "Reference": "",
+                                            "ReferenceType": 0,
+                                            "Display": "The assignments are [8 9 10]"
+                                        }
+                                    ],
+                                    "ValueType": "boolean",
+                                    "Value": true,
+                                    "Childs": null
+                                }
+                            ]
+                        },
+                        {
+                            "FunctionID": "function_a_0001_0001",
+                            "Chapter": "All items are over 5 and the average is $gte 8.5",
+                            "ValueType": "boolean",
+                            "Value": true,
+                            "Childs": [
+                                {
+                                    "FunctionID": "function_a_0001_0001_0001",
+                                    "Chapter": "The average is $gte 8.5",
+                                    "References": [
+                                        {
+                                            "Reference": "",
+                                            "ReferenceType": 0,
+                                            "Display": "The assignments are [10 10 10]"
+                                        },
+                                        {
+                                            "Reference": "",
+                                            "ReferenceType": 0,
+                                            "Display": "The average is 10.0"
+                                        }
+                                    ],
+                                    "ValueType": "boolean",
+                                    "Value": true,
+                                    "Childs": null
+                                },
+                                {
+                                    "FunctionID": "function_a_0001_0001_0001",
+                                    "Chapter": "The average is $gte 8.5",
+                                    "References": [
+                                        {
+                                            "Reference": "",
+                                            "ReferenceType": 0,
+                                            "Display": "The assignments are [10 10 10]"
+                                        }
+                                    ],
+                                    "ValueType": "boolean",
+                                    "Value": true,
+                                    "Childs": null
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "FunctionID": "function_a_0002",
+                    "References": [
+                        {
+                            "Reference": "",
+                            "ReferenceType": 0,
+                            "Display": "The student has the IELTS certificate"
+                        }
+                    ],
+                    "Chapter": "The student has the IELTS certificate",
+                    "ValueType": "boolean",
+                    "Value": true,
+                    "Childs": null
+                }
+            ]
+        },
+        {
+            "FunctionID": "function_a_0002",
+            "Code": "average",
+            "ValueType": "float",
+            "Value": 9.5,
+            "EvaluationProcesses": [
+                {
+                    "FunctionID": "function_a_0002_0001",
+                    "Chapter": "Subject average",
+                    "References": [
+                        {
+                            "Reference": "",
+                            "ReferenceType": 0,
+                            "Display": "The assignments are [8 9 10]"
+                        }
+                    ],
+                    "ValueType": "float",
+                    "Value": 9,
+                    "Childs": null
+                },
+                {
+                    "FunctionID": "function_a_0002_0001",
+                    "Chapter": "Subject average",
+                    "References": [
+                        {
+                            "Reference": "",
+                            "ReferenceType": 0,
+                            "Display": "The assignments are [10 10 10]"
+                        }
+                    ],
+                    "ValueType": "float",
+                    "Value": 10,
+                    "Childs": null
+                }
+            ]
+        }
+    ]
+}

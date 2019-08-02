@@ -25,20 +25,20 @@ func main() {
 		Ielts: true,
 	}
 
-	student2 := core.Student{
-		Name: "Limmie",
-		Subjects: []core.Subject{
-			core.Subject{
-				Name:        "Science",
-				Assignments: []float64{8, 9, 10},
-			},
-			core.Subject{
-				Name:        "Physical Education",
-				Assignments: []float64{10, 10, 10},
-			},
-		},
-		Ielts: false,
-	}
+	// student2 := core.Student{
+	// 	Name: "Limmie",
+	// 	Subjects: []core.Subject{
+	// 		core.Subject{
+	// 			Name:        "Science",
+	// 			Assignments: []float64{8, 9, 10},
+	// 		},
+	// 		core.Subject{
+	// 			Name:        "Physical Education",
+	// 			Assignments: []float64{10, 10, 10},
+	// 		},
+	// 	},
+	// 	Ielts: false,
+	// }
 
 	student3 := core.Student{
 		Name: "Kilia",
@@ -57,7 +57,6 @@ func main() {
 
 	common.PrettyPrint(student1.Evaluate())
 
-	common.PrettyPrint(student2.Evaluate())
-
+	// common.PrettyPrint(student2.Evaluate())
 	common.PrettyPrint(student3.Evaluate())
 }

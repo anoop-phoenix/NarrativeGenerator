@@ -28,15 +28,15 @@ func average(assignment []float64) float64 {
 
 func evaluateSubjects(subjects []Subject) Narrative {
 	narrative := Narrative{
-		Desc:   "Every subject's assignments are over 5 and the average is $gte 8.5",
-		Status: true,
+		Desc:  "Every subject's assignments are over 5 and the average is $gte 8.5",
+		Value: true,
 	}
 	for _, subject := range subjects {
 		// Check each assignment
 		assignmentsNarrative := evaluateAssignments(subject.Assignments)
 		narrative.Childs = append(narrative.Childs, assignmentsNarrative)
-		if assignmentsNarrative.Status == false {
-			narrative.Status = false
+		if assignmentsNarrative.Value == false {
+			narrative.Value = false
 			return narrative
 		}
 	}
@@ -46,19 +46,19 @@ func evaluateSubjects(subjects []Subject) Narrative {
 func evaluateAssignments(assignments []float64) Narrative {
 	// Check average mark
 	narrative := Narrative{
-		Desc:   "All items are over 5 and the average is $gte 8.5",
-		Status: true,
+		Desc:  "All items are over 5 and the average is $gte 8.5",
+		Value: true,
 	}
 
 	// Check the average
 	averageNarrative := Narrative{
-		Desc:   "The average is $gte 8.5",
-		Status: true,
+		Desc:  "The average is $gte 8.5",
+		Value: true,
 	}
 
 	averageMark := average(assignments)
 	if averageMark < 8.5 {
-		averageNarrative.Status = false
+		averageNarrative.Value = false
 	}
 	averageNarrative.References = []ReferenceResource{
 		ReferenceResource{
@@ -69,20 +69,20 @@ func evaluateAssignments(assignments []float64) Narrative {
 		},
 	}
 	narrative.Childs = append(narrative.Childs, averageNarrative)
-	if averageNarrative.Status == false {
-		narrative.Status = false
+	if averageNarrative.Value == false {
+		narrative.Value = false
 		return narrative
 	}
 
 	// Check the assignments
 	assignmentsNarrative := Narrative{
-		Desc:   "All assignments is over 5",
-		Status: true,
+		Desc:  "All assignments is over 5",
+		Value: true,
 	}
 
 	for _, assignment := range assignments {
 		if assignment < 5 {
-			assignmentsNarrative.Status = false
+			assignmentsNarrative.Value = false
 			break
 		}
 	}
@@ -92,8 +92,8 @@ func evaluateAssignments(assignments []float64) Narrative {
 		},
 	}
 	narrative.Childs = append(narrative.Childs, assignmentsNarrative)
-	if assignmentsNarrative.Status == false {
-		narrative.Status = false
+	if assignmentsNarrative.Value == false {
+		narrative.Value = false
 		return narrative
 	}
 	return narrative
@@ -105,10 +105,10 @@ func evaluateIelts(s Student) Narrative {
 	}
 	ref := ReferenceResource{}
 	if s.Ielts {
-		narrative.Status = true
+		narrative.Value = true
 		ref.Display = "The student has the IELTS certificate"
 	} else {
-		narrative.Status = false
+		narrative.Value = false
 		ref.Display = "The student doesn't have the IELTS certificate"
 	}
 
@@ -120,21 +120,21 @@ func evaluateIelts(s Student) Narrative {
 
 func isVeryGoodStudent(s Student) Narrative {
 	narrative := Narrative{
-		Desc:   fmt.Sprintf("%s is a very good student", s.Name),
-		Status: true,
+		Desc:  fmt.Sprintf("%s is a very good student", s.Name),
+		Value: true,
 	}
 	// Evaluate Subjects
 	subjectsNarrative := evaluateSubjects(s.Subjects)
 	narrative.Childs = append(narrative.Childs, subjectsNarrative)
-	if subjectsNarrative.Status == false {
-		narrative.Status = false
+	if subjectsNarrative.Value == false {
+		narrative.Value = false
 		return narrative
 	}
 	// Evaluate Ielts
 	ieltsNarrative := evaluateIelts(s)
 	narrative.Childs = append(narrative.Childs, ieltsNarrative)
-	if ieltsNarrative.Status == false {
-		narrative.Status = false
+	if ieltsNarrative.Value == false {
+		narrative.Value = false
 		return narrative
 	}
 

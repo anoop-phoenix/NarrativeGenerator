@@ -1,0 +1,41 @@
+{
+    "EvaluatedDate": "2019-08-01T11:37:08.404643+07:00",
+    "Status": "complete",
+    "Measure": "overall score of the student",
+    "Result": {
+        "average": {
+            "ValueType": "float",
+            "Value": 9.5
+        }
+    },
+    "EvaluationProcesses": [
+        {
+            "FunctionID": "function_a_0001_0001",
+            "Chapter": "Subject <Science> average",
+            "References": [
+                {
+                    "Reference": "",
+                    "ReferenceType": 0,
+                    "Display": "The assignments are [8 9 10]"
+                }
+            ],
+            "ValueType": "float",
+            "Value": 9,
+            "Childs": null
+        },
+        {
+            "FunctionID": "function_a_0001_0001",
+            "Chapter": "Subject <Physical Education> average",
+            "References": [
+                {
+                    "Reference": "",
+                    "ReferenceType": 0,
+                    "Display": "The assignments are [10 10 10]"
+                }
+            ],
+            "ValueType": "float",
+            "Value": 10,
+            "Childs": null
+        }
+    ]
+}
