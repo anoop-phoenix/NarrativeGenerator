@@ -2,41 +2,45 @@ package core
 
 import "time"
 
-// ReferenceResource ...
+// ReferenceResource represents the resource used in a evaluation stage
 type ReferenceResource struct {
-	Reference     string        // C? Literal reference, Relative, internal or absolute URL
+	Reference     string        // Literal reference, Relative, internal or absolute URL
 	ReferenceType ReferenceType // Type the reference refers to (e.g. "Patient")
 	Display       string        // Text alternative for the resource
 }
 
-// EvaluationProcess ...
+// EvaluationProcess represent the process of executing a function
 type EvaluationProcess struct {
-	FunctionID string // Id of the executed function
-	Chapter    string
+	FunctionID    string // Id of the executed function
+	Chapter       string
+	ComposedValue ResultValue
+	// NOTE: Only the leaf nodes in the evaluation tree have attr References.
+	// On the other hand, only intermediated nodes have attr Childs
 	References []ReferenceResource // Store evidences
-	ValueType  ValueType
-	Value      interface{}
 	Childs     []EvaluationProcess
 }
 
-// Result ...
-type Result struct {
-	FunctionID          string      // Id of the executed function
-	Code                MeasureCode // Meaning of the measure
-	ValueType           ValueType
-	Value               interface{}
-	EvaluationProcesses []EvaluationProcess
+// ResultValue is basically a key-value pair
+type ResultValue struct {
+	ValueType ValueType
+	Value     interface{}
 }
 
-// [] remove list in result root level
-// 	[] list -> object
-// 	[] items -> object attr
-// [] narrative need adapt continous evaluation. i.e: numerator depends on denominator
+// Result object represent the result of a measure
+type Result struct {
+	Good     ResultValue // Denominator
+	VeryGood ResultValue // Numerator
+	Average  ResultValue // Custom 1
+	Mean     ResultValue // Custom 2
+	Max      ResultValue // Custom 3
+}
 
-// EvaluationResult ...
+// EvaluationResult wrap the measure result with metadata and data on the evaluation process
 type EvaluationResult struct {
-	EvaluatedDate time.Time
-	Status        StatusType
-	Measure       string
-	Results       []Result
+	EvaluationDate      time.Time
+	Status              StatusType
+	MeasureID           string
+	MeasureDesc         string
+	Result              Result
+	EvaluationProcesses []EvaluationProcess
 }
