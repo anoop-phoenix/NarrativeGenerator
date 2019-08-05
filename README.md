@@ -17,6 +17,10 @@ The process also return the overall score of the student. Show reference to over
 
 **Beside**, the algorithm must provide the story evaluating the student.
 
+## Note
+* Class `EvaluationProcesses` has its own print method `GenerateStory` 
+
+
 ## Experience
 * Only provide `ReferenceResource` in the leaf node, therefore, the information is not duplicated 
 * The detail of `narrative` depends on the intent of the author

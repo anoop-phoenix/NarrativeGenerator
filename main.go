@@ -64,34 +64,13 @@ func main() {
 	// average()
 	// generateStory()
 
-	// GoString, %#v
-	evaluationProcesses := student3.Evaluate().EvaluationProcesses
+	// evaluationProcesses := student3.Evaluate().EvaluationProcesses
+	// evaluationProcesses.GenerateStory()
+
+	evaluationProcesses := student3.Average().EvaluationProcesses
 	evaluationProcesses.GenerateStory()
 }
 
-// func tabLiteral(n int) string {
-// 	s := ""
-// 	for i := 0; i < n; i++ {
-// 		s = s + "\t"
-// 	}
-// 	return s
-// }
-// func printEvaluationProcess(evaluationProcess core.EvaluationProcess, level int) {
-// 	fmt.Printf("%s%s\n", tabLiteral(level), evaluationProcess.Chapter)
-// 	fmt.Printf("%s<%s: %v>\n", tabLiteral(level), evaluationProcess.ComposedValue.ValueType, evaluationProcess.ComposedValue.Value)
-// 	for _, childEvaluationProcess := range evaluationProcess.Childs {
-// 		printEvaluationProcess(childEvaluationProcess, level+1)
-// 	}
-// }
-
-// func generateStory() {
-// 	evaluationProcesses := student3.Evaluate().EvaluationProcesses
-
-// 	level := 0
-// 	for _, evaluationProcess := range evaluationProcesses {
-// 		printEvaluationProcess(evaluationProcess, level)
-// 	}
-// }
 func evaluate() {
 	common.PrettyPrint(student1.Evaluate())
 	common.PrettyPrint(student2.Evaluate())
