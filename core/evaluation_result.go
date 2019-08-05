@@ -1,6 +1,8 @@
 package core
 
-import "time"
+import (
+	"time"
+)
 
 // ReferenceResource represents the resource used in a evaluation stage
 type ReferenceResource struct {
@@ -42,5 +44,5 @@ type EvaluationResult struct {
 	MeasureID           string
 	MeasureDesc         string
 	Result              Result
-	EvaluationProcesses []EvaluationProcess
+	EvaluationProcesses EvaluationProcesses
 }

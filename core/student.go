@@ -150,7 +150,7 @@ func (s Student) Evaluate() EvaluationResult {
 		},
 		MeasureID:           "2019-ABX-ESAS",
 		MeasureDesc:         "Evaluate-student-and-average-score",
-		EvaluationProcesses: []EvaluationProcess{},
+		EvaluationProcesses: EvaluationProcesses{},
 	}
 
 	// Evaluate Subjects
@@ -199,7 +199,7 @@ func (s Student) Average() EvaluationResult {
 		EvaluationDate:      time.Now(),
 		MeasureID:           "2019-ABX-AS",
 		MeasureDesc:         "Average-score",
-		EvaluationProcesses: []EvaluationProcess{},
+		EvaluationProcesses: EvaluationProcesses{},
 	}
 
 	sm1 := float64(0)
